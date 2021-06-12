@@ -1,0 +1,16 @@
+{
+  "name": "backend-nodejs-4metodos-turmaqa",
+  "version": "1.0.0",
+  "description": "Backend em Nodejs com os quatros métodos mais usados",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Andreia Cardoso",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",  
+    "nodemon": "^2.0.7"
+  }
+}
