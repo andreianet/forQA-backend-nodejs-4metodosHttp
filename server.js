@@ -1,6 +1,3 @@
-//EXPRESS facilita na criação de APIS em NodeJs, auxilia na construção das nossas aplicações backend,web.
-//BodyParser é um modulo que ajuda converter o corpo da requisição para vários formatos, json, por exemplo.
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -21,24 +18,23 @@ const PORT = 8080;
  app.use(express.json());
  app.use(bodyParser.urlencoded({ extended: false }));
 
- //Métodos básicos Http para requisição
-
+ //Métodos básicos Http para requisição:
  app.get('/', (req, res) => {
    const result = { name: 'andreia', description: 'apaixonada por TI' };
    return res.json(result);
  });
-
+//Obter por ID
  app.get('/:id', (req, res) => {
    const item = findItem(req.params.id);
    return res.json(item);
  });
-
+//Criar um registro
  app.post('/', (req, res) => {
    const name = req.body.name;
    const description = req.body.description;
    return res.json([name, description]);
  });
-
+//Atualizar um registro
  app.put('/:id', (req, res) => {
      const name = req.body.name;
      //criando um novo valor
@@ -47,10 +43,10 @@ const PORT = 8080;
      item = {...item,name:name}
      return res.json(item);
  });
-
+//Excluir um registro
  app.delete('/:id', (req, res) => {
      const item = findItem(req.params.id);
      return res.json({msg:"Herói Deletado com Sucesso"})
  })
-
+ //Executando a rota na porta 8080
  app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
